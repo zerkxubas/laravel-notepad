@@ -8,6 +8,14 @@
     <div class="p-6 text-gray-900 text-center font-bold text-2xl underline">
         {{ __('All Notes Here') }}
     </div>
+    <div class="max-w-7xl mx-auto text-end mb-5 sm:px-6 lg:px-8 ">
+        <a href="{{ route('notes.create') }}" class="rounded-full bg-blue-600 text-white px-7 py-2">
+            <i class="fa-solid fa-square-plus  pe-2"></i>
+            Add New</a>
+    </div>
+    @if(session()->has('success'))
+        <div class="text-center text-green-500"><i class="fa-solid fa-check pe-2"></i>{{ session('success') }}</div>
+    @endif
     <div class="py-3">
         {{-- Checking if the records are set and is not empty --}}
         @if (isset($notes) && !$notes->isEmpty())

@@ -11,7 +11,7 @@ class Note extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title','content','status',
+        'user_id','title','content','status',
     ];
 
     public function user(): BelongsTo
