@@ -11,8 +11,12 @@ class Note extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id','title','content','status',
+       'uuid', 'user_id','title','content','status',
     ];
+
+    public function getRouteKeyName(){
+        return 'uuid';
+    }
 
     public function user(): BelongsTo
     {
