@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid');
             $table->foreignId('user_id')->constrained(); // this should be the fk from user id.
             $table->string('title', 30)->nullable();
             $table->longText('content')->nullable();
