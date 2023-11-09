@@ -101,6 +101,6 @@ class NoteController extends Controller
         $note = Note::where('uuid',$uuid)->where('user_id', Auth::id())->firstOrFail();
         $note->delete();
 
-        return redirect()->route('notes.index')->with('success','Note has been deleted!');
+        return redirect()->route('notes.index')->with('success','Note has been moved to trash!');
     }
 }
