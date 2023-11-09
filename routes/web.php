@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TrashedNoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,12 @@ Route::middleware('auth')->group(function () {
 
     // Creating Notes Resource Route for authenticated users.
     Route::resource('/notes', NoteController::class);
+
+    // Creating Trash or Archive Route for soft deleted items.
+    Route::get('/trash/notes', [TrashedNoteController::class,'index'])->name('trash.view');
+    Route::get('/trash/notes/{uuid}', [TrashedNoteController::class,'show'])->name('trash.show');
+    Route::patch('/trash/notes/{uuid}', [TrashedNoteController::class,'update'])->name('trash.update');
+    Route::delete('/trash/notes/{uuid}', [TrashedNoteController::class,'destroy'])->name('trash.destroy');
 
 });
 

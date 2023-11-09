@@ -23,11 +23,11 @@
                         <i class="fa-regular fa-clipboard pe-1 fa-sm"></i>{{ __('Notes') }}
                     </x-nav-link>
                 </div>
-                {{-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('notes.index')" :active="request()->routeIs('notes.index')">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('trash.view')" :active="request()->routeIs('trash.view')">
                         <i class="fa-solid fa-trash pe-1 fa-sm"></i>{{ __('Recycle Bin') }}
                     </x-nav-link>
-                </div> --}}
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -80,7 +80,17 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                <i class="fa-solid fa-house pe-1 fa-sm"></i>{{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            {{-- Notes menu --}}
+            <x-responsive-nav-link :href="route('notes.index')" :active="request()->routeIs('notes.index')">
+                <i class="fa-regular fa-clipboard pe-1 fa-sm"></i>{{ __('Notes') }}
+            </x-responsive-nav-link>
+
+            {{-- Recycle Bin --}}
+            <x-responsive-nav-link :href="route('trash.view')" :active="request()->routeIs('trash.view')">
+                <i class="fa-solid fa-trash pe-1 fa-sm"></i>{{ __('Recycle Bin') }}
             </x-responsive-nav-link>
         </div>
 
